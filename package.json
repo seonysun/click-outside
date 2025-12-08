@@ -1,0 +1,43 @@
+{
+  "name": "@seony/click-outside",
+  "version": "0.0.1",
+  "description": "React hook for detecting outside clicks",
+  "type": "module",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "click-outside",
+    "modal",
+    "sidebar",
+    "seony"
+  ],
+  "author": "seonysun",
+  "license": "ISC",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/seonysun/click-outside/issues"
+  },
+  "homepage": "https://github.com/seonysun/click-outside#readme",
+  "peerDependencies": {
+    "react": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.7",
+    "tsup": "^8.5.1"
+  }
+}
