@@ -4,12 +4,14 @@ interface Props<T extends HTMLElement> {
   ref: React.RefObject<T>;
   onClickOutside: () => void;
   enabled?: boolean;
+  eventType?: "pointerdown" | "mousedown" | "touchstart";
 }
 
 export const useClickOutside = <T extends HTMLElement>({
   ref,
   onClickOutside,
   enabled = true,
+  eventType = "pointerdown",
 }: Props<T>) => {
   const onClickRef = useRef(onClickOutside);
   useEffect(() => {
@@ -19,7 +21,7 @@ export const useClickOutside = <T extends HTMLElement>({
   useEffect(() => {
     if (!enabled) return;
 
-    const handleClick = (e: PointerEvent) => {
+    const handleClick = (e: Event) => {
       const target = e.target as Node;
 
       if (!ref.current || !target) return;
@@ -28,10 +30,10 @@ export const useClickOutside = <T extends HTMLElement>({
       }
     };
 
-    document.addEventListener("pointerdown", handleClick);
+    document.addEventListener(eventType, handleClick);
 
     return () => {
-      document.removeEventListener("pointerdown", handleClick);
+      document.removeEventListener(eventType, handleClick);
     };
   }, [ref, enabled]);
 };
