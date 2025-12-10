@@ -1,6 +1,6 @@
 {
   "name": "@seonysun/click-outside",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "React hook for detecting outside clicks",
   "type": "module",
   "main": "./dist/index.js",
