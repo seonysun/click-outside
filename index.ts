@@ -1,11 +1,11 @@
 import { useEffect, useRef } from "react";
 
-interface Props<T extends HTMLElement> {
+type Props<T extends HTMLElement> = {
   ref: React.RefObject<T>;
   onClickOutside: () => void;
   enabled?: boolean;
   eventType?: "pointerdown" | "mousedown" | "touchstart";
-}
+};
 
 export const useClickOutside = <T extends HTMLElement>({
   ref,
