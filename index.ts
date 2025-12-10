@@ -20,6 +20,7 @@ export const useClickOutside = <T extends HTMLElement>({
 
   useEffect(() => {
     if (!enabled) return;
+    if (typeof window === "undefined") return;
 
     const listener = (e: Event) => {
       const target = e.target as Node;
