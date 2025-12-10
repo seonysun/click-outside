@@ -21,7 +21,7 @@ export const useClickOutside = <T extends HTMLElement>({
   useEffect(() => {
     if (!enabled) return;
 
-    const handleClick = (e: Event) => {
+    const listener = (e: Event) => {
       const target = e.target as Node;
 
       if (!ref.current || !target) return;
@@ -30,10 +30,10 @@ export const useClickOutside = <T extends HTMLElement>({
       }
     };
 
-    document.addEventListener(eventType, handleClick);
+    document.addEventListener(eventType, listener);
 
     return () => {
-      document.removeEventListener(eventType, handleClick);
+      document.removeEventListener(eventType, listener);
     };
   }, [ref, enabled]);
 };
